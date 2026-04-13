@@ -1,0 +1,99 @@
+/* Gold glitter — shared particle look */
+.ggr-root {
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Full-screen (cinematic + behind invitation chrome) */
+.ggr-root--viewport {
+  position: fixed;
+  inset: 0;
+  z-index: 6;
+  opacity: 0.4;
+  mix-blend-mode: screen;
+}
+
+/* Softer viewport glitter once details card is open (card has its own layer) */
+.wif-page--with-invitation > .ggr-root--viewport {
+  opacity: 0.22;
+  mix-blend-mode: soft-light;
+}
+
+.wif-page--invitation-only > .ggr-root--viewport {
+  opacity: 0.2;
+  mix-blend-mode: soft-light;
+}
+
+/* Behind invitation text, clipped to card — strong gold on cream */
+.ggr-root--card {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  border-radius: inherit;
+  opacity: 0.62;
+  mix-blend-mode: overlay;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ggr-root--viewport {
+    opacity: 0.1;
+  }
+
+  .ggr-root--card {
+    opacity: 0.18;
+  }
+
+  .ggr-particle {
+    animation: none !important;
+    opacity: 0.3;
+    top: 0;
+    transform: translate3d(0, 35vh, 0);
+  }
+}
+
+.ggr-particle {
+  position: absolute;
+  top: -5%;
+  left: var(--ggr-left, 50%);
+  width: var(--ggr-w, 3px);
+  height: var(--ggr-h, 3px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 35%,
+    #fffef5 0%,
+    #f0d78c 28%,
+    #c9a227 55%,
+    #7a5c10 100%
+  );
+  box-shadow:
+    0 0 4px rgba(255, 236, 180, 0.95),
+    0 0 10px rgba(212, 175, 55, 0.55);
+  opacity: 0;
+  animation-name: ggr-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: var(--ggr-dur, 4s);
+  animation-delay: var(--ggr-delay, 0s);
+}
+
+@keyframes ggr-fall {
+  0% {
+    transform: translate3d(0, -2vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.92;
+  }
+  78% {
+    opacity: 0.75;
+  }
+  94% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translate3d(var(--ggr-drift, 0px), 108vh, 0) rotate(540deg);
+    opacity: 0;
+  }
+}

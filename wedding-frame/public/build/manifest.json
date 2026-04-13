@@ -1,0 +1,26 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-uWQxdvSS.css",
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "name": "app",
+    "names": [
+      "app.css"
+    ]
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-BbzB21r_.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/js/jemputan-frame.tsx": {
+    "file": "assets/jemputan-frame-BPO2GooT.js",
+    "name": "jemputan-frame",
+    "src": "resources/js/jemputan-frame.tsx",
+    "isEntry": true,
+    "css": [
+      "assets/jemputan-frame-BayLLl63.css"
+    ]
+  }
+}
